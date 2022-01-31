@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuid} from 'uuid'
 
 class form extends React.Component{
     constructor(){
@@ -16,14 +17,14 @@ class form extends React.Component{
     }
     handleSubmit = (e) =>{
         e.preventDefault()
-
         let newUser = {
+            id: uuid(),
             name: this.state.name,
             email: this.state.email,
             gen: this.state.gen,
         }
-        
         this.props.addUser(newUser);
+        this.setState({name: "", email: "", gen: ""})
     }
     render(){
         return(<React.Fragment>
