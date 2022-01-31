@@ -43,7 +43,7 @@ class Item extends React.Component{
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onHide={() => {this.setState({isShowing: false})}}>Close</Button>
+                <Button variant="secondary" onClick={() => {this.setState({isShowing: false})}}>Close</Button>
                 <Button variant="primary" onClick={() => {this.handleEdit()}}>Save changes</Button>
             </Modal.Footer>
             </Modal>
