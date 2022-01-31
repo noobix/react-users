@@ -25,9 +25,9 @@ class Item extends React.Component{
             <p>{name}</p>
             <p>{email}</p>
             <p>{gen}</p>
-            <hr/>
             <button onClick={() => {this.setState({isShowing: true})}}>Edit</button>
             <button variant="danger" onClick={() => {this.props.deleteUser(this.state.id)}}>Delete</button>
+            <hr/>
             <Modal show = {this.state.isShowing} onHide = {() => {this.setState({isShowing: false})}}>
             <Modal.Header closeButton>
                 <Modal.Title>Modal title</Modal.Title>
