@@ -9,7 +9,7 @@ class userList extends React.Component {
         {this.props.users.map((user, index) => {
           return(<div key= {index}>
             <Item user= {user} editUser= {this.props.editUser} 
-            deleteUser={this.props.deleteUser} />;
+            deleteUser={this.props.deleteUser} />
             {/*<div key={index}>
             <p>{user.name}</p>
             <p>{user.email}</p>
