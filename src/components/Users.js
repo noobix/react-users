@@ -7,7 +7,7 @@ class userList extends React.Component {
         <React.Fragment>
         <h4>User list</h4>
         {this.props.users.map((user, index) => {
-          return(<div key= {index}>
+          return(<div key= {user.id}>
             <Item user= {user} editUser= {this.props.editUser} 
             deleteUser={this.props.deleteUser} />
             {/*<div key={index}>
