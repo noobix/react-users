@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import Item from './Item'
 
 class userList extends React.Component {
@@ -21,4 +22,8 @@ class userList extends React.Component {
       )
   }
 }
-export default userList;
+//mapStateToProps
+const sendDataAsProps = (state) => {
+  return {state: state, users: state.users}
+}
+export default connect(sendDataAsProps) (userList);

@@ -1,5 +1,7 @@
 import React from "react";
 import {v4 as uuid} from 'uuid'
+import {AddUserAction}  from '../actions/Action'
+import {connect} from 'react-redux'
 
 class form extends React.Component{
     constructor(){
@@ -43,4 +45,6 @@ class form extends React.Component{
         </React.Fragment>);
     }
 }
-export default form
+//mapDispatchToProps
+const sendActionAsProps = {addUser: AddUserAction}
+export default connect(null,sendActionAsProps) (form)
