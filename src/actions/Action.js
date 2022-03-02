@@ -4,13 +4,15 @@ export const AddUserAction = (user) => {
         payload: user,
     }
 }
-export const EditUserAction = () => {
+export const EditUserAction = (id, userData) => {
     return {
-        type: "EDIT_USER"
+        type: "EDIT_USER",
+        payload: {id: id, userData: userData}
     }
 }
-export const DeleteUserAction = () => {
+export const DeleteUserAction = (id) => {
     return {
-        type: "DELETE_USER"
+        type: "DELETE_USER",
+        payload: id
     }
 }

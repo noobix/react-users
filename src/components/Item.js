@@ -1,5 +1,7 @@
 import React from 'react'
 import {Button, Modal} from 'react-bootstrap'
+import {EditUserAction, DeleteUserAction} from '../actions/Action'
+import {connect} from 'react-redux'
 
 class Item extends React.Component{
     constructor(props){
@@ -13,20 +15,21 @@ class Item extends React.Component{
             email: this.props.user.email, gen: this.props.user.gen, isShowing: false}
     }
     handleEdit(){
-        let editUser = {name: this.state.name, email: this.state.email, id: this.state.id}
+        let editUser = {name: this.state.name, email: this.state.email, gen: this.state.gen, id: this.state.id}
         this.props.editUser(this.state.id, editUser)
         this.setState({isShowing: false})
     }
 
     render(){
-        const {name, email, gen} = this.props.user
+        const {name, email, gen, id} = this.props.user
         return(
             <div>
                 <p>{name}</p>
                 <p>{email}</p>
                 <p>{gen}</p>
                 <Button onClick={() => {this.setState({isShowing: true})}}>Edit</Button>
-                <Button variant="danger" onClick={() => {this.props.deleteUser(this.state.id)}}>Delete</Button>
+                {/* <Button variant="danger" onClick={() => {this.props.deleteUser(this.state.id)}}>Delete</Button> */}
+                <Button variant="danger" onClick={() => {this.props.deleteUser(id)}}>Delete</Button>
                 <hr/>
                 <Modal show = {this.state.isShowing} onHide = {() => {this.setState({isShowing: false})}}>
                 <Modal.Header closeButton>
@@ -51,4 +54,5 @@ class Item extends React.Component{
         )
     }
 }
-export default Item;
+const sendActionAsProps ={editUser: EditUserAction, deleteUser: DeleteUserAction}
+export default connect(null, sendActionAsProps) (Item);
